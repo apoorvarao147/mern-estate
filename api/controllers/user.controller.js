@@ -49,8 +49,6 @@ export const deleteUser = async (req, res, next) => {
 };
 
 export const getUserListings = async (req, res, next) => {
-  console.log("request user is", req.user);
-  console.log("request params is", req.params);
   if (req.user.id !== req.params.id)
     return next(errorHandler(401, "You can only see your own listings!"));
   try {
