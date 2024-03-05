@@ -16,7 +16,7 @@ import {
 import Contact from "../components/Contact";
 
 export default function Listing() {
-  SwiperCore.use(Navigation);
+  SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
