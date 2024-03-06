@@ -1,0 +1,13 @@
+version: "3.8"
+
+services: 
+  app:
+    build: ./
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    environment:
+      - MONGO=$MONGO
+      - JWT_SECRET=$JWT_SECRET
+    stdin_open: true
