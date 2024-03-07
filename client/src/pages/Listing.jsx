@@ -55,17 +55,25 @@ export default function Listing() {
       {listing && !loading && !error && (
         <>
           <Swiper navigation>
-            {listing.imageUrls.map((image) => (
-              <SwiperSlide key={image}>
-                <div
-                  className="h-[500px]"
-                  style={{
-                    background: `url(${image}) center no-repeat`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-              </SwiperSlide>
-            ))}
+            {listing.imageUrls.length > 0 ? (
+              listing.imageUrls.map((image) => (
+                <SwiperSlide key={image}>
+                  <div
+                    className="h-[500px]"
+                    style={{
+                      background: `url(${image}) center no-repeat`,
+                      backgroundSize: "cover",
+                    }}
+                  ></div>
+                </SwiperSlide>
+              ))
+            ) : (
+              <img
+                src="https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2022/12/07082032/10-Companies-That-Hire-for-Remote-Real-Estate-Jobs.jpg"
+                alt="listing cover"
+                className="h-[500px] w-full object-cover"
+              />
+            )}
           </Swiper>
           <div className="fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer">
             <FaShare

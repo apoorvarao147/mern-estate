@@ -265,7 +265,7 @@ export default function Profile() {
             >
               <Link to={`/listing/${listing._id}`}>
                 <img
-                  src={listing.imageUrls[0]}
+                  src={listing.imageUrls[0] || "https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2022/12/07082032/10-Companies-That-Hire-for-Remote-Real-Estate-Jobs.jpg"}
                   alt="listing cover"
                   className="h-16 w-16 object-contain rounded-lg"
                 />
