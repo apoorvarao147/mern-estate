@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api' : {
-        target: 'http://3.137.138.241:3000/',
+        target: 'https://mernapi.apoorvarao.com',
         secure: false,
       },
     },
