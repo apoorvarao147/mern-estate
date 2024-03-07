@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch("https://mernapi.apoorvarao.com/api/listing/get?offer=true&limit=5");
+        const res = await fetch(`${import.meta.env.VITE_MERN_API}/api/listing/get?offer=true&limit=5`);
         const data = await res.json();
         setOfferListings(data);
         fetchRentListings();
@@ -29,7 +29,7 @@ export default function Home() {
     };
     const fetchRentListings = async () => {
       try {
-        const res = await fetch("https://mernapi.apoorvarao.com/api/listing/get?type=rent&limit=5");
+        const res = await fetch(`${import.meta.env.VITE_MERN_API}/api/listing/get?type=rent&limit=5`);
         const data = await res.json();
         setRentListings(data);
         fetchSaleListings();
@@ -39,7 +39,7 @@ export default function Home() {
     };
     const fetchSaleListings = async () => {
       try {
-        const res = await fetch("https://mernapi.apoorvarao.com/api/listing/get?type=sale&limit=5");
+        const res = await fetch(`${import.meta.env.VITE_MERN_API}/api/listing/get?type=sale&limit=5`);
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {

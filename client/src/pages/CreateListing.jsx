@@ -130,7 +130,7 @@ export default function CreateListing() {
 
       setLoading(true);
       setError(false);
-      const res = await fetch("/api/listing/create", {
+      const res = await fetch(`${import.meta.env.VITE_MERN_API}/api/listing/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -145,7 +145,7 @@ export default function CreateListing() {
       if (data.success === false) {
         setError(data.message);
       }
-      navigate(`/listing/${data._id}`);
+      navigate(`${import.meta.env.VITE_MERN_API}/listing/${data._id}`);
     } catch (error) {
       setError(error.message);
       setLoading(false);
