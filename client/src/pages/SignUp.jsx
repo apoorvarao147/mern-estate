@@ -34,7 +34,7 @@ export default function SignUp() {
       }
       setLoading(false);
       setError(null);
-      navigate(`${import.meta.env.VITE_MERN_API}/sign-in`)
+      navigate(`/sign-in`)
     } catch (error) {
       setLoading(false);
       setError(error.message);

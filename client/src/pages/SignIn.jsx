@@ -34,7 +34,7 @@ export default function SignIn() {
         return;
       }
       dispatch(signInSuccess(data))
-      navigate(`${import.meta.env.VITE_MERN_API}/`)
+      navigate(`/`)
     } catch (error) {
       dispatch(signInFailure(error.message));
     }

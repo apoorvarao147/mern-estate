@@ -111,7 +111,7 @@ export default function Search() {
     urlParams.set("sort", sidebarData.sort);
     urlParams.set("order", sidebarData.order);
     const searchQuery = urlParams.toString();
-    navigate(`${import.meta.env.VITE_MERN_API}/search?${searchQuery}`);
+    navigate(`/search?${searchQuery}`);
   };
 
   const onShowMoreClick = async () => {
