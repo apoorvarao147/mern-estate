@@ -130,7 +130,7 @@ export default function CreateListing() {
 
       setLoading(true);
       setError(false);
-      const res = await fetch(`${import.meta.env.VITE_MERN_API}/api/listing/create`, {
+      const res = await fetch(`/api/listing/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
