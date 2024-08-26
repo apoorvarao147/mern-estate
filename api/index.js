@@ -8,7 +8,27 @@ import contactRouter from "./routes/contact.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
 import cors from "cors";
+import fs from "fs";
+import http  from "http";
+import https from "https";
 dotenv.config();
+
+const app = express();
+
+const options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/fullchain.pem')
+};
+
+https.createServer(options, app).listen(443, () => {
+  console.log('HTTPS Server listening on port 443');
+});
+
+
+
+http.createServer(app).listen(3000, () => {
+  console.log('HTTP Server listening on port 80');
+});
 
 mongoose
   .connect(process.env.MONGO)
@@ -21,7 +41,7 @@ mongoose
 
 const __dirname = path.resolve();
 
-const app = express();
+
 app.use(cors());
 
 app.use(express.json());
@@ -39,9 +59,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000!!");
-});
+// app.listen(3000, () => {
+//   console.log("Server is running on port 3000!!");
+// });
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
@@ -52,3 +72,10 @@ app.use((err, req, res, next) => {
     message,
   });
 });
+
+
+
+
+
+
+
